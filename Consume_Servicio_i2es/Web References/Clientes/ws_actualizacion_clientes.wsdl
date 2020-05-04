@@ -28,12 +28,12 @@
   <wsdl:binding name="ws_actualizacion_clientesBinding" type="tns:ws_actualizacion_clientesPortType">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
     <wsdl:operation name="ws_actualizacion_clientes">
-      <soap:operation soapAction="urn:actualizacion_clientess#actualizacion_clientes" style="rpc" />
+      <soap:operation soapAction="urn:ws_actualizacion_clientes#ws_actualizacion_clientes" style="rpc" />
       <wsdl:input>
-        <soap:body use="encoded" namespace="urn:ws_estados_pedidos" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        <soap:body use="encoded" namespace="urn:ws_actualizacion_clientes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="encoded" namespace="urn:ws_estados_pedidos" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+        <soap:body use="encoded" namespace="urn:ws_actualizacion_clientes" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>

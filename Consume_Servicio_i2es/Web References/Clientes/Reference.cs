@@ -73,7 +73,7 @@ namespace Consume_Servicio_i2es.Clientes {
         public event Callws_actualizacion_clientesCompletedEventHandler Callws_actualizacion_clientesCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapRpcMethodAttribute("urn:actualizacion_clientess#actualizacion_clientes", RequestNamespace="urn:ws_estados_pedidos", ResponseNamespace="urn:ws_estados_pedidos")]
+        [System.Web.Services.Protocols.SoapRpcMethodAttribute("urn:ws_actualizacion_clientes#ws_actualizacion_clientes", RequestNamespace="urn:ws_actualizacion_clientes", ResponseNamespace="urn:ws_actualizacion_clientes")]
         [return: System.Xml.Serialization.SoapElementAttribute("return")]
         public Salida Callws_actualizacion_clientes(string Usuariows, string Passws, string Xml) {
             object[] results = this.Invoke("Callws_actualizacion_clientes", new object[] {
