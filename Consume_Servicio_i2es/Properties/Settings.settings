@@ -2,11 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Consume_Servicio_i2es.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Consume_Servicio_i2es_Pedidos_Estado_ws_estados_pedidos" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://shoptest.aluminios.com/ws/ws_estados_pedidos.php</Value>
-    </Setting>
     <Setting Name="Consume_Servicio_i2es_Clientes_ws_actualizacion_clientes" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://shoptest.aluminios.com/ws/ws_actualizacion_clientes.php</Value>
+    </Setting>
+    <Setting Name="Consume_Servicio_i2es_Pedidos_Estado_ws_estados_pedidos" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://shoptest.aluminios.com/ws/ws_estados_pedidos.php</Value>
     </Setting>
   </Settings>
 </SettingsFile>

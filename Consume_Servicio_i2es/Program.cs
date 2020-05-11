@@ -8,10 +8,11 @@ using System.Data;
 using System.Runtime.InteropServices;
 using System.Xml.Linq;
 using System.IO;
+using System.Net;
 
 
 
-
+//probando a ver si sube
 
 namespace Consume_Servicio_i2es
 {
@@ -21,8 +22,11 @@ namespace Consume_Servicio_i2es
         public static SqlCommand cmd;
         static void Main(string[] args)
         {
+            
+
             try
             {
+               
                 IniFile ini = new IniFile("./Web_Xml.ini"); // archivo ini 
                 string ConString = ini.IniReadValue("Parametros", "Base");
                 using (con = new SqlConnection(ConString))
@@ -39,9 +43,10 @@ namespace Consume_Servicio_i2es
             }
         }
 
-
+      
         static void Llamows(string Codigo_Tabla)
         {
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
             try
             {
             IniFile ini = new IniFile("./Web_Xml.ini"); // archivo ini 
@@ -51,7 +56,7 @@ namespace Consume_Servicio_i2es
             {// Vista Estado_Pedidos  ****vista_pedido_estado_articulos_web_xml***
                 
                 string tabla = ini.IniReadValue("Parametros", "Tabla_Estado_pedidos");
-                string CmdString_EstadoPedidos = "Select * FROM " + tabla;
+                string CmdString_EstadoPedidos = "Select ISNULL(xmlcolumn, '') FROM " + tabla;
                 cmd = new SqlCommand(CmdString_EstadoPedidos, con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 string resultado_ws_EstadoPedidos = "";

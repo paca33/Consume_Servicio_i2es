@@ -26,20 +26,20 @@ namespace Consume_Servicio_i2es.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://shoptest.aluminios.com/ws/ws_estados_pedidos.php")]
-        public string Consume_Servicio_i2es_Pedidos_Estado_ws_estados_pedidos {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://shoptest.aluminios.com/ws/ws_actualizacion_clientes.php")]
+        public string Consume_Servicio_i2es_Clientes_ws_actualizacion_clientes {
             get {
-                return ((string)(this["Consume_Servicio_i2es_Pedidos_Estado_ws_estados_pedidos"]));
+                return ((string)(this["Consume_Servicio_i2es_Clientes_ws_actualizacion_clientes"]));
             }
         }
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://shoptest.aluminios.com/ws/ws_actualizacion_clientes.php")]
-        public string Consume_Servicio_i2es_Clientes_ws_actualizacion_clientes {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://shoptest.aluminios.com/ws/ws_estados_pedidos.php")]
+        public string Consume_Servicio_i2es_Pedidos_Estado_ws_estados_pedidos {
             get {
-                return ((string)(this["Consume_Servicio_i2es_Clientes_ws_actualizacion_clientes"]));
+                return ((string)(this["Consume_Servicio_i2es_Pedidos_Estado_ws_estados_pedidos"]));
             }
         }
     }
