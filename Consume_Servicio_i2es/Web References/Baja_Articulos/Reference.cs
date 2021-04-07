@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace Consume_Servicio_i2es.Pedidos_Estado {
+namespace Consume_Servicio_i2es.Baja_Articulos {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -26,16 +26,16 @@ namespace Consume_Servicio_i2es.Pedidos_Estado {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="ws_estados_pedidosBinding", Namespace="urn:ws_estados_pedidos")]
-    public partial class ws_estados_pedidos : System.Web.Services.Protocols.SoapHttpClientProtocol {
+    [System.Web.Services.WebServiceBindingAttribute(Name="ws_actualizacion_articulosbajaBinding", Namespace="urn:ws_actualizacion_articulosbaja")]
+    public partial class ws_actualizacion_articulosbaja : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
-        private System.Threading.SendOrPostCallback Callws_estados_pedidosOperationCompleted;
+        private System.Threading.SendOrPostCallback Callws_actualizacion_articulosbajaOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
-        public ws_estados_pedidos() {
-            this.Url = global::Consume_Servicio_i2es.Properties.Settings.Default.Consume_Servicio_i2es_Pedidos_Estado_ws_estados_pedidos;
+        public ws_actualizacion_articulosbaja() {
+            this.Url = global::Consume_Servicio_i2es.Properties.Settings.Default.Consume_Servicio_i2es_Baja_Articulos_ws_actualizacion_articulosbaja;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -70,13 +70,13 @@ namespace Consume_Servicio_i2es.Pedidos_Estado {
         }
         
         /// <remarks/>
-        public event Callws_estados_pedidosCompletedEventHandler Callws_estados_pedidosCompleted;
+        public event Callws_actualizacion_articulosbajaCompletedEventHandler Callws_actualizacion_articulosbajaCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapRpcMethodAttribute("urn:ws_estados_pedidos#ws_estados_pedidos", RequestNamespace="urn:ws_estados_pedidos", ResponseNamespace="urn:ws_estados_pedidos")]
+        [System.Web.Services.Protocols.SoapRpcMethodAttribute("urn:ws_actualizacion_articulosbaja#ws_actualizacion_articulosbaja", RequestNamespace="urn:ws_actualizacion_articulosbaja", ResponseNamespace="urn:ws_actualizacion_articulosbaja")]
         [return: System.Xml.Serialization.SoapElementAttribute("return")]
-        public Salida Callws_estados_pedidos(string Usuariows, string Passws, string Xml) {
-            object[] results = this.Invoke("Callws_estados_pedidos", new object[] {
+        public Salida Callws_actualizacion_articulosbaja(string Usuariows, string Passws, string Xml) {
+            object[] results = this.Invoke("Callws_actualizacion_articulosbaja", new object[] {
                         Usuariows,
                         Passws,
                         Xml});
@@ -84,25 +84,25 @@ namespace Consume_Servicio_i2es.Pedidos_Estado {
         }
         
         /// <remarks/>
-        public void Callws_estados_pedidosAsync(string Usuariows, string Passws, string Xml) {
-            this.Callws_estados_pedidosAsync(Usuariows, Passws, Xml, null);
+        public void Callws_actualizacion_articulosbajaAsync(string Usuariows, string Passws, string Xml) {
+            this.Callws_actualizacion_articulosbajaAsync(Usuariows, Passws, Xml, null);
         }
         
         /// <remarks/>
-        public void Callws_estados_pedidosAsync(string Usuariows, string Passws, string Xml, object userState) {
-            if ((this.Callws_estados_pedidosOperationCompleted == null)) {
-                this.Callws_estados_pedidosOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCallws_estados_pedidosOperationCompleted);
+        public void Callws_actualizacion_articulosbajaAsync(string Usuariows, string Passws, string Xml, object userState) {
+            if ((this.Callws_actualizacion_articulosbajaOperationCompleted == null)) {
+                this.Callws_actualizacion_articulosbajaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCallws_actualizacion_articulosbajaOperationCompleted);
             }
-            this.InvokeAsync("Callws_estados_pedidos", new object[] {
+            this.InvokeAsync("Callws_actualizacion_articulosbaja", new object[] {
                         Usuariows,
                         Passws,
-                        Xml}, this.Callws_estados_pedidosOperationCompleted, userState);
+                        Xml}, this.Callws_actualizacion_articulosbajaOperationCompleted, userState);
         }
         
-        private void OnCallws_estados_pedidosOperationCompleted(object arg) {
-            if ((this.Callws_estados_pedidosCompleted != null)) {
+        private void OnCallws_actualizacion_articulosbajaOperationCompleted(object arg) {
+            if ((this.Callws_actualizacion_articulosbajaCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
-                this.Callws_estados_pedidosCompleted(this, new Callws_estados_pedidosCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+                this.Callws_actualizacion_articulosbajaCompleted(this, new Callws_actualizacion_articulosbajaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -130,7 +130,7 @@ namespace Consume_Servicio_i2es.Pedidos_Estado {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.SoapTypeAttribute(Namespace="urn:ws_estados_pedidos")]
+    [System.Xml.Serialization.SoapTypeAttribute(Namespace="urn:ws_actualizacion_articulosbaja")]
     public partial class Salida {
         
         private string errorField;
@@ -148,17 +148,17 @@ namespace Consume_Servicio_i2es.Pedidos_Estado {
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
-    public delegate void Callws_estados_pedidosCompletedEventHandler(object sender, Callws_estados_pedidosCompletedEventArgs e);
+    public delegate void Callws_actualizacion_articulosbajaCompletedEventHandler(object sender, Callws_actualizacion_articulosbajaCompletedEventArgs e);
     
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    public partial class Callws_estados_pedidosCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+    public partial class Callws_actualizacion_articulosbajaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
         
         private object[] results;
         
-        internal Callws_estados_pedidosCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+        internal Callws_actualizacion_articulosbajaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

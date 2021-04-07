@@ -34,6 +34,12 @@ namespace Consume_Servicio_i2es
                     con.Open();
                     Llamows("Estado_Pedidos");
                     Llamows("Clientes");
+                    Llamows("Cupones");
+                    Llamows("Cotizacion");
+                    Llamows("Actualizacion_Articulos");
+                    Llamows("Baja_Articulos");
+                    Llamows("Actualizacion_Stock_Precio");
+                    Llamows("Actualizacion_Stock_Unidad");
                 }
 
             }
@@ -47,6 +53,7 @@ namespace Consume_Servicio_i2es
         static void Llamows(string Codigo_Tabla)
         {
             ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+            SqlDataReader reader = null;
             try
             {
             IniFile ini = new IniFile("./Web_Xml.ini"); // archivo ini 
@@ -58,7 +65,7 @@ namespace Consume_Servicio_i2es
                 string tabla = ini.IniReadValue("Parametros", "Tabla_Estado_pedidos");
                 string CmdString_EstadoPedidos = "Select ISNULL(xmlcolumn, '') FROM " + tabla;
                 cmd = new SqlCommand(CmdString_EstadoPedidos, con);
-                SqlDataReader reader = cmd.ExecuteReader();
+                reader = cmd.ExecuteReader();
                 string resultado_ws_EstadoPedidos = "";
                 reader.Read();
                 string xml_EstadoPedidos = reader.GetString(0);
@@ -84,10 +91,10 @@ namespace Consume_Servicio_i2es
                 string tabla = ini.IniReadValue("Parametros", "Tabla_Clientes");
                 string CmdString_Clientes = "Select * FROM " + tabla;
                 cmd = new SqlCommand(CmdString_Clientes, con);
-                SqlDataReader readerCliente = cmd.ExecuteReader();
-                readerCliente.Read();
-                string xml_Cliente = readerCliente.GetString(0);
-                readerCliente.Close();
+                reader = cmd.ExecuteReader();
+                reader.Read();
+                string xml_Cliente = reader.GetString(0);
+                reader.Close();
                 if (xml_Cliente.Trim() != "")
                 {
                     Clientes.ws_actualizacion_clientes wsConsumo_Cliente = new Clientes.ws_actualizacion_clientes();
@@ -105,14 +112,183 @@ namespace Consume_Servicio_i2es
                 }
 
             }
+
+                if (Codigo_Tabla == "Cupones")
+                { // Vista Cliente  ****vista_clientes_xml***
+                    string tabla = ini.IniReadValue("Parametros", "Tabla_Cupones");
+                    string CmdString_Cupones = "Select * FROM " + tabla;
+                    cmd = new SqlCommand(CmdString_Cupones, con);
+                    reader = cmd.ExecuteReader();
+                    reader.Read();
+                    string xml_Cupones = reader.GetString(0);
+                    reader.Close();
+                    if (xml_Cupones.Trim() != "")
+                    {
+                        Cupones.ws_actualizacion_cuponessorteo wsConsumo_Cupones = new Cupones.ws_actualizacion_cuponessorteo();
+                        var salida_Cupones = wsConsumo_Cupones.Callws_actualizacion_cuponessorteo(userWS, passWS, xml_Cupones);
+                        string resultado_ws_Cupones = salida_Cupones.Error;
+                        //GraboLog
+                        GrabaLog(Codigo_Tabla, "wsConsumo_Cupones", xml_Cupones, resultado_ws_Cupones);
+                        if (resultado_ws_Cupones != "")
+                        {
+
+                            GrabarError("Error en llamows_Cupones " + resultado_ws_Cupones + (char)13 + (char)10);
+                        }
+                        else
+                            Actualiza_fecha_envio(xml_Cupones, "cupones");
+                    }
+
+                }
+
+               if (Codigo_Tabla == "Cotizacion")
+                {//Vista Cotizacion ****vista_cotizacion_xml****
+                    string tabla = ini.IniReadValue("Parametros", "Tabla_Cotizacion");
+                    string CmdString_Cotizacion = "Select * FROM " + tabla;
+                    cmd = new SqlCommand(CmdString_Cotizacion, con);
+                    reader = cmd.ExecuteReader();
+                    reader.Read();
+                    string xml_Cotizacion = reader.GetString(0);
+                    reader.Close();
+                    if (xml_Cotizacion.Trim() != "" && xml_Cotizacion != "<Cotizaciones/>")
+                    {
+                        Cotizacion.ws_actualizacion_cotizacion ws_Actualizacion_Cotizacion = new Cotizacion.ws_actualizacion_cotizacion();
+                        var salida_Cotizacion = ws_Actualizacion_Cotizacion.Callws_actualizacion_cotizacion(userWS, passWS, xml_Cotizacion);
+                        string resultado_ws_Cotizacion = salida_Cotizacion.Error;
+                        //GraboLog
+                        GrabaLog(Codigo_Tabla, "ws_Actualizacion_Cotizacion", xml_Cotizacion, resultado_ws_Cotizacion);
+                        if (resultado_ws_Cotizacion != "")
+                        {
+                            GrabarError("Error en llamows_Cotizacion " + resultado_ws_Cotizacion + (char)13 + (char)10);
+                        }
+                        else
+                            Actualiza_fecha_envio(xml_Cotizacion, "cotizacion");
+                    }
+                }
+
+                if (Codigo_Tabla == "Actualizacion_Articulos")
+                { // Vista Actualizacion_Articulos  ****Actualizacion_Articulos_xml***
+                    string tabla = ini.IniReadValue("Parametros", "Tabla_Actualizacion_Articulos");
+                    string CmdString_Actualizacion_Articulos = "Select * FROM " + tabla;
+                    cmd = new SqlCommand(CmdString_Actualizacion_Articulos, con);
+                    reader = cmd.ExecuteReader();
+                    reader.Read();
+                    string xml_Actualizacion_Articulos = reader.GetString(0);
+                    reader.Close();
+                        if (xml_Actualizacion_Articulos != null && xml_Actualizacion_Articulos.Trim() != "")
+                        {
+                            Actualizacion_Articulos.ws_actualizacion_articulos ws_Actualizacion_Articulos = new Actualizacion_Articulos.ws_actualizacion_articulos();
+                            var salida_Actualizacion_Articulos = ws_Actualizacion_Articulos.Callws_actualizacion_articulos(userWS, passWS, xml_Actualizacion_Articulos);
+                            string resultado_ws_Actualizacion_Articulos = salida_Actualizacion_Articulos.Error;
+                            //GraboLog
+                            GrabaLog(Codigo_Tabla, "ws_Actualizacion_Articulos", xml_Actualizacion_Articulos, resultado_ws_Actualizacion_Articulos);
+                            if (resultado_ws_Actualizacion_Articulos != "")
+                            {
+
+                                GrabarError("Error en llamows_Actualizacion_Articulos " + resultado_ws_Actualizacion_Articulos + (char)13 + (char)10);
+                            }
+                            else
+                                Actualiza_fecha_envio(xml_Actualizacion_Articulos, "Codigo", "articulos");
+                        }
+                    }
+
+
+                    
+
+                    if (Codigo_Tabla == "Baja_Articulos")
+                { // Vista Baja_Articulos  ****Baja_Articulos_xml***
+                    string tabla = ini.IniReadValue("Parametros", "Tabla_Baja_Articulos");
+                    string CmdString_Baja_Articulos = "Select * FROM " + tabla;
+                    cmd = new SqlCommand(CmdString_Baja_Articulos, con);
+                    reader = cmd.ExecuteReader();
+                    reader.Read();
+                    string xml_Baja_Articulos = reader.GetString(0);
+                    reader.Close();
+                    if (xml_Baja_Articulos.Trim() != "" && xml_Baja_Articulos != "<Articulos/>")
+                    {
+                        Baja_Articulos.ws_actualizacion_articulosbaja ws_Actualizacion_Articulosbaja = new Baja_Articulos.ws_actualizacion_articulosbaja();
+                        var salida_Baja_Articulos = ws_Actualizacion_Articulosbaja.Callws_actualizacion_articulosbaja(userWS, passWS, xml_Baja_Articulos);
+                        string resultado_ws_Baja_Articulos = salida_Baja_Articulos.Error;
+                        //GraboLog
+                        GrabaLog(Codigo_Tabla, "ws_Actualizacion_Articulosbaja", xml_Baja_Articulos, resultado_ws_Baja_Articulos);
+                        if (resultado_ws_Baja_Articulos != "")
+                        {
+
+                            GrabarError("Error en llamows_Baja_Articulos " + resultado_ws_Baja_Articulos + (char)13 + (char)10);
+                        }
+                        else
+                            Actualiza_fecha_envio(xml_Baja_Articulos, "baja_articulos");
+                    }
+
+                }
+
+                if (Codigo_Tabla == "Actualizacion_Stock_Precio")
+                { // Vista Actualizacion_Stock_Precio  ****Actualizacion_Stock_Precio***
+                    string tabla = ini.IniReadValue("Parametros", "Tabla_Actualizacion_Stock_Precio");
+                    string CmdString__Actualizacion_Stock_Precio = "Select * FROM " + tabla;
+                    cmd = new SqlCommand(CmdString__Actualizacion_Stock_Precio, con);
+                    reader = cmd.ExecuteReader();
+                    reader.Read();
+                    string xml_Actualizacion_Stock_Precio = reader.GetString(0);
+                    reader.Close();
+                    if (xml_Actualizacion_Stock_Precio != null && xml_Actualizacion_Stock_Precio.Trim() != "")
+                    {
+                        Actualizacion_Stock_Precio.ws_actualizacion_stockprecio ws_Actualizacion_Stockprecio = new Actualizacion_Stock_Precio.ws_actualizacion_stockprecio();
+                        var salida_Actualizacion_Stock_Precio = ws_Actualizacion_Stockprecio.Callws_actualizacion_stockprecio(userWS, passWS, xml_Actualizacion_Stock_Precio);
+                        string resultado_ws_Actualizacion_Stock_Precio = salida_Actualizacion_Stock_Precio.Error;
+                        //GraboLog
+                        GrabaLog(Codigo_Tabla, "ws_Actualizacion_Stockprecio", xml_Actualizacion_Stock_Precio, resultado_ws_Actualizacion_Stock_Precio);
+                        if (resultado_ws_Actualizacion_Stock_Precio != "")
+                        {
+
+                            GrabarError("Error en llamows_Actualizacion_Stock_Precio " + resultado_ws_Actualizacion_Stock_Precio + (char)13 + (char)10);
+                        }
+                        else
+                            Actualiza_fecha_envio(xml_Actualizacion_Stock_Precio, "Codigo", "articulo_stock_precio");
+                    }
+
+                }
+
+                if (Codigo_Tabla == "Actualizacion_Stock_Unidad")
+                { // Vista Actualizacion_Stock_Unidad  ****vista_stock_distrib_xml***
+                    string tabla = ini.IniReadValue("Parametros", "Tabla_Actualizacion_Stock_Unidad");
+                    string CmdString__Actualizacion_Stock_Unidad = "Select * FROM " + tabla;
+                    cmd = new SqlCommand(CmdString__Actualizacion_Stock_Unidad, con);
+                    reader = cmd.ExecuteReader();
+                    reader.Read();
+                    string xml_Actualizacion_Stock_Unidad = reader.GetString(0);
+                    reader.Close();
+                    if (xml_Actualizacion_Stock_Unidad.Trim() != "")
+                    {
+                        Actualizacion_stock_unidad.ws_actualizacion_stockunidad ws_Actualizacion_Stockunidad = new Actualizacion_stock_unidad.ws_actualizacion_stockunidad();
+                        var salida_Actualizacion_Stock_Unidad = ws_Actualizacion_Stockunidad.Callws_actualizacion_stockunidad(userWS, passWS, xml_Actualizacion_Stock_Unidad);
+                        string resultado_ws_Actualizacion_Stock_Unidad = salida_Actualizacion_Stock_Unidad.Error;
+                        //GraboLog
+                        GrabaLog(Codigo_Tabla, "ws_Actualizacion_Stockunidad", xml_Actualizacion_Stock_Unidad, resultado_ws_Actualizacion_Stock_Unidad);
+                        if (resultado_ws_Actualizacion_Stock_Unidad != "")
+                        {
+
+                            GrabarError("Error en llamows_Actualizacion_Stock_Unidad " + resultado_ws_Actualizacion_Stock_Unidad + (char)13 + (char)10);
+                        }
+                        else
+                            Actualiza_fecha_envio(xml_Actualizacion_Stock_Unidad, "Codigo", "stock_distrib");
+                    }
+
+                }
+
             }
+            
+
             catch (Exception ex)
             {
                 GrabarError("Error en llamoWS: " + ex.Message + (char)13 + (char)10);
                 
 
             }
+            finally
+            {
+                reader.Close();
 
+            }
         }
         static void busco_articulos_nuevos()
         {
@@ -199,7 +375,25 @@ namespace Consume_Servicio_i2es
 
             }
         }
+
+        static void Actualiza_fecha_envio(string xml, string tabla)
+        {
+            try
+            {
+                var sql = string.Format("update " + tabla + " set fecha_envio=getdate() where fecha_envio IS NULL");
+                cmd = new SqlCommand(sql, con);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                GrabarError("Error en Actualiza_fecha_envio de cupones: " + ex.Message + (char)13 + (char)10);
+
+            }
+        }
+
     }
+
+
     public class IniFile
     {
         public string path;

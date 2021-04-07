@@ -39,7 +39,7 @@
   </wsdl:binding>
   <wsdl:service name="ws_actualizacion_clientes">
     <wsdl:port name="ws_actualizacion_clientesPort" binding="tns:ws_actualizacion_clientesBinding">
-      <soap:address location="http://shoptest.aluminios.com/ws/ws_actualizacion_clientes.php" />
+      <soap:address location="https://shop.aluminios.com:443/ws/ws_actualizacion_clientes.php" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

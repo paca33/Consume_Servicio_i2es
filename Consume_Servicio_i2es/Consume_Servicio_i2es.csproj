@@ -55,12 +55,42 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Web References\Actualizacion_Articulos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Actualizacion_Stock_Precio\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Actualizacion_stock_unidad\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Baja_Articulos\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\Clientes\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\Cotizacion\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\Pedidos_Estado\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\Cupones\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -72,6 +102,38 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Web References\Actualizacion_Articulos\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Actualizacion_Articulos\Salida.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Actualizacion_Articulos\ws_actualizacion_articulos.wsdl" />
+    <None Include="Web References\Actualizacion_Stock_Precio\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Actualizacion_Stock_Precio\Salida.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Actualizacion_Stock_Precio\ws_actualizacion_stockprecio.wsdl" />
+    <None Include="Web References\Actualizacion_stock_unidad\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Actualizacion_stock_unidad\Salida.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Actualizacion_stock_unidad\ws_actualizacion_stockunidad.wsdl" />
+    <None Include="Web References\Baja_Articulos\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Baja_Articulos\Salida.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Baja_Articulos\ws_actualizacion_articulosbaja.wsdl" />
     <None Include="Web References\Clientes\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -80,6 +142,18 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\Clientes\ws_actualizacion_clientes.wsdl" />
+    <None Include="Web References\Cotizacion\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\Cotizacion\Salida.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Cotizacion\ws_actualizacion_cotizacion.wsdl" />
+    <None Include="Web References\Cupones\Salida1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\Cupones\ws_actualizacion_cuponessorteo.wsdl" />
     <None Include="Web References\Pedidos_Estado\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -88,6 +162,10 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\Pedidos_Estado\ws_estados_pedidos.wsdl" />
+    <None Include="Web References\Cupones\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -96,10 +174,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://shoptest.aluminios.com/ws/ws_actualizacion_clientes.php%3fwsdl">
+    <WebReferenceUrl Include="https://shop.aluminios.com/ws/ws_actualizacion_clientes.php%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Clientes\</RelPath>
-      <UpdateFromURL>http://shoptest.aluminios.com/ws/ws_actualizacion_clientes.php%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>https://shop.aluminios.com/ws/ws_actualizacion_clientes.php%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -107,16 +185,82 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Consume_Servicio_i2es_Clientes_ws_actualizacion_clientes</CachedSettingsPropName>
     </WebReferenceUrl>
-    <WebReferenceUrl Include="http://shoptest.aluminios.com/ws/ws_estados_pedidos.php%3fwsdl">
+    <WebReferenceUrl Include="https://shop.aluminios.com/ws/ws_estados_pedidos.php%3fwsdl">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\Pedidos_Estado\</RelPath>
-      <UpdateFromURL>http://shoptest.aluminios.com/ws/ws_estados_pedidos.php%3fwsdl</UpdateFromURL>
+      <UpdateFromURL>https://shop.aluminios.com/ws/ws_estados_pedidos.php%3fwsdl</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Consume_Servicio_i2es_Pedidos_Estado_ws_estados_pedidos</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://shop.aluminios.com/ws/ws_actualizacion_cuponessorteo.php%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Cupones\</RelPath>
+      <UpdateFromURL>https://shop.aluminios.com/ws/ws_actualizacion_cuponessorteo.php%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Consume_Servicio_i2es_ws_envio_cupones_ws_actualizacion_cuponessorteo</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://shop.aluminios.com/ws/ws_actualizacion_articulos.php%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Actualizacion_Articulos\</RelPath>
+      <UpdateFromURL>https://shop.aluminios.com/ws/ws_actualizacion_articulos.php%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Consume_Servicio_i2es_Actualizacion_Articulos_ws_actualizacion_articulos</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://shop.aluminios.com/ws/ws_actualizacion_articulosbaja.php%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Baja_Articulos\</RelPath>
+      <UpdateFromURL>https://shop.aluminios.com/ws/ws_actualizacion_articulosbaja.php%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Consume_Servicio_i2es_Baja_Articulos_ws_actualizacion_articulosbaja</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://shop.aluminios.com/ws/ws_actualizacion_cotizacion.php%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Cotizacion\</RelPath>
+      <UpdateFromURL>https://shop.aluminios.com/ws/ws_actualizacion_cotizacion.php%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Consume_Servicio_i2es_Cotizacion_ws_actualizar_cotizacion</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://shop.aluminios.com/ws/ws_actualizacion_stockprecio.php%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Actualizacion_Stock_Precio\</RelPath>
+      <UpdateFromURL>https://shop.aluminios.com/ws/ws_actualizacion_stockprecio.php%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Consume_Servicio_i2es_Actualizacion_Stock_Precio_ws_actualizacion_stockprecio</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://shop.aluminios.com/ws/ws_actualizacion_stockunidad.php%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\Actualizacion_stock_unidad\</RelPath>
+      <UpdateFromURL>https://shop.aluminios.com/ws/ws_actualizacion_stockunidad.php%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Consume_Servicio_i2es_Actualizacion_stock_unidad_ws_actualizacion_stockunidad</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:ws_actualizacion_stockunidad" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="urn:ws_actualizacion_stockunidad" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="urn:ws_actualizacion_stockunidad">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="Salida">
+        <xsd:all>
+          <xsd:element name="Error" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ws_actualizacion_stockunidadRequest">
+    <wsdl:part name="Usuariows" type="xsd:string" />
+    <wsdl:part name="Passws" type="xsd:string" />
+    <wsdl:part name="Xml" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="ws_actualizacion_stockunidadResponse">
+    <wsdl:part name="return" type="tns:Salida" />
+  </wsdl:message>
+  <wsdl:portType name="ws_actualizacion_stockunidadPortType">
+    <wsdl:operation name="ws_actualizacion_stockunidad">
+      <wsdl:input message="tns:ws_actualizacion_stockunidadRequest" />
+      <wsdl:output message="tns:ws_actualizacion_stockunidadResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ws_actualizacion_stockunidadBinding" type="tns:ws_actualizacion_stockunidadPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="ws_actualizacion_stockunidad">
+      <soap:operation soapAction="urn:ws_actualizacion_stockunidad#ws_actualizacion_stockunidad" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:ws_actualizacion_stockunidad" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:ws_actualizacion_stockunidad" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ws_actualizacion_stockunidad">
+    <wsdl:port name="ws_actualizacion_stockunidadPort" binding="tns:ws_actualizacion_stockunidadBinding">
+      <soap:address location="https://shop.aluminios.com:443/ws/ws_actualizacion_stockunidad.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

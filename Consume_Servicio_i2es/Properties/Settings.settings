@@ -3,10 +3,28 @@
   <Profiles />
   <Settings>
     <Setting Name="Consume_Servicio_i2es_Clientes_ws_actualizacion_clientes" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://shoptest.aluminios.com/ws/ws_actualizacion_clientes.php</Value>
+      <Value Profile="(Default)">https://shop.aluminios.com:443/ws/ws_actualizacion_clientes.php</Value>
     </Setting>
     <Setting Name="Consume_Servicio_i2es_Pedidos_Estado_ws_estados_pedidos" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://shoptest.aluminios.com/ws/ws_estados_pedidos.php</Value>
+      <Value Profile="(Default)">https://shop.aluminios.com:443/ws/ws_estados_pedidos.php</Value>
+    </Setting>
+    <Setting Name="Consume_Servicio_i2es_ws_envio_cupones_ws_actualizacion_cuponessorteo" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://shop.aluminios.com:443/ws/ws_actualizacion_cuponessorteo.php</Value>
+    </Setting>
+    <Setting Name="Consume_Servicio_i2es_Cotizacion_ws_actualizar_cotizacion" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://shop.aluminios.com:443/ws/ws_actualizacion_cotizacion.php</Value>
+    </Setting>
+    <Setting Name="Consume_Servicio_i2es_Actualizacion_Articulos_ws_actualizacion_articulos" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://shop.aluminios.com:443/ws/ws_actualizacion_articulos.php</Value>
+    </Setting>
+    <Setting Name="Consume_Servicio_i2es_Baja_Articulos_ws_actualizacion_articulosbaja" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://shop.aluminios.com:443/ws/ws_actualizacion_articulosbaja.php</Value>
+    </Setting>
+    <Setting Name="Consume_Servicio_i2es_Actualizacion_Stock_Precio_ws_actualizacion_stockprecio" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://shop.aluminios.com:443/ws/ws_actualizacion_stockprecio.php</Value>
+    </Setting>
+    <Setting Name="Consume_Servicio_i2es_Actualizacion_stock_unidad_ws_actualizacion_stockunidad" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://shop.aluminios.com:443/ws/ws_actualizacion_stockunidad.php</Value>
     </Setting>
   </Settings>
 </SettingsFile>

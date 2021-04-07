@@ -28,7 +28,7 @@
   <wsdl:binding name="ws_estados_pedidosBinding" type="tns:ws_estados_pedidosPortType">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
     <wsdl:operation name="ws_estados_pedidos">
-      <soap:operation soapAction="urn:ws_estados_pedidos#ws_estado_pedidos" style="rpc" />
+      <soap:operation soapAction="urn:ws_estados_pedidos#ws_estados_pedidos" style="rpc" />
       <wsdl:input>
         <soap:body use="encoded" namespace="urn:ws_estados_pedidos" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
       </wsdl:input>
@@ -39,7 +39,7 @@
   </wsdl:binding>
   <wsdl:service name="ws_estados_pedidos">
     <wsdl:port name="ws_estados_pedidosPort" binding="tns:ws_estados_pedidosBinding">
-      <soap:address location="http://shoptest.aluminios.com/ws/ws_estados_pedidos.php" />
+      <soap:address location="https://shop.aluminios.com:443/ws/ws_estados_pedidos.php" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
